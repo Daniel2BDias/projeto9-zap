@@ -3,7 +3,7 @@ import styled from "styled-components"
 export default function BarraInferior () {
     return (
         <Inferior>
-
+            <h1>*/* Concluídos</h1>
         </Inferior>
     )
 };

@@ -1,17 +1,17 @@
 import styled from "styled-components";
 import Zap from "./Zap";
 
-export default function Main() {
+export default function Main({virazap, zap}) {
     return (
         <MainContent>
-            <Zap />
-            <Zap />
-            <Zap />
-            <Zap />
-            <Zap />
-            <Zap />
-            <Zap />
-            <Zap />
+            <Zap virazap={virazap} zap={zap}/>
+            <Zap virazap={virazap} zap={zap}/>
+            <Zap virazap={virazap} zap={zap}/>
+            <Zap virazap={virazap} zap={zap}/>
+            <Zap virazap={virazap} zap={zap}/>
+            <Zap virazap={virazap} zap={zap}/>
+            <Zap virazap={virazap} zap={zap}/>
+            <Zap virazap={virazap} zap={zap}/>
         </MainContent>
     )
 };
