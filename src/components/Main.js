@@ -1,17 +1,11 @@
 import styled from "styled-components";
 import Zap from "./Zap";
+import cards from "../cards";
 
-export default function Main({virazap, zap}) {
+export default function Main() {
     return (
         <MainContent>
-            <Zap virazap={virazap} zap={zap}/>
-            <Zap virazap={virazap} zap={zap}/>
-            <Zap virazap={virazap} zap={zap}/>
-            <Zap virazap={virazap} zap={zap}/>
-            <Zap virazap={virazap} zap={zap}/>
-            <Zap virazap={virazap} zap={zap}/>
-            <Zap virazap={virazap} zap={zap}/>
-            <Zap virazap={virazap} zap={zap}/>
+            {cards.map((card, i) => <Zap key={i} id={i} card={card} />)}
         </MainContent>
     )
 };

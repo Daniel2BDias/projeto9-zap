@@ -1,31 +1,44 @@
 import styled from "styled-components"
-import cards from "../cards"
+import { useState } from "react"
 import virar from "../assets/seta_virar.png"
 import play from "../assets/seta_play.png"
+import Zapmaior from "./Zapmaior"
+import Zapmenor from "./Zapmenor"
 
-export default function Zap ({virazap, zap}) {
+
+
+
+function Zap ({card, id}) {
+
+    const [zap, setZap] = useState(false);
+
+    const ViraZap = (zap) => {
+        setZap(!zap);
+      };
+
     return (
-        <ZapContent zap={zap}>
-            <h1>{zap ? cards.question : cards.answer}</h1>
-            <img alt='Zap!!' src={zap ? play : virar} onClick={() => virazap(zap)}/>
-        </ZapContent>
+        <div>
+            {zap ? <Zapmaior key={id} id={id} card={card}/> : <Zapmenor key={id} id={id} zap={zap} virazap={() => ViraZap(zap)}/>}
+        </div>
     )
 };
+
+export default Zap;
 
 
 const ZapContent = styled.section`
 height: ${props => props.zap ? '131px' : '65px'};
 width: 300px;
-background-color: #FFFFD4;
+background-color: ${props => props.zap ? '#FFFFD4' : '#FFFFFF'};
 border-radius: 5px;
-margin: 30px 0;
+margin-bottom: 30px;
 position: relative;
 
 img {
-    height: 15%;
-    width: 10%;
+    height: 20px;
+    width: 20px;
     position: absolute;
-    bottom: 5px;
-    right: 5px;
+    bottom: ${props => props.zap ? '10px' : '21px'};
+    right: ${props => props.zap ? '10px' : '20px'};
 }
 `
