@@ -1,8 +1,9 @@
 import { useState } from "react";
 import styled from "styled-components";
 import virar from "../assets/seta_virar.png"
+import Botoes from "./Botoes";
 
-export default function Zapmaior ({card, key}) {
+export default function Zapmaior ({card, id, funcao}) {
 
     const [respondido, setRespondido] = useState(false);
 
@@ -12,17 +13,17 @@ export default function Zapmaior ({card, key}) {
     };
 
     return (
-        <ZapMaior respondido={respondido}>
+        <ZapMaior respondido={respondido} id={id}>
             <div>
             <hi>{respondido ?  card.answer : card.question}</hi>
-            <img src={virar} onClick={() => respondeZap(respondido)} />
+            {respondido ? <Botoes funcao={funcao} /> : <img src={virar} onClick={() => respondeZap(respondido)} />}
             </div>
         </ZapMaior>
         )
 };
 
 
-const ZapMaior = styled.section`
+    const ZapMaior = styled.section`
         height: 131px;
         width: 300px;
         background-color: #FFFFD4;
@@ -32,6 +33,8 @@ const ZapMaior = styled.section`
 
         div {
             padding: 10px;
+            height: auto;
+            width: 94%;
         }
 
         h1 {
@@ -46,4 +49,4 @@ const ZapMaior = styled.section`
             bottom: 10px;
             right: 10px;
         }
-`;
+    `;
