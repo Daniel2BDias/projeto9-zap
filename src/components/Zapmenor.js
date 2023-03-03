@@ -6,7 +6,7 @@ export default function Zapmenor ({ virazap, zap, id}) {
     return (
         <ZapMenor>
             <h1>pergunta {id+1}</h1>
-            <img src={play} onClick={() => virazap(zap)}/>
+            <img alt={play} src={play} onClick={() => virazap(zap)}/>
         </ZapMenor>
     );
 };
@@ -28,6 +28,7 @@ const ZapMenor = styled.section`
             margin-left: 25px;
             font-size: 16px;
             font-weigth: 700;
+            text-decoration: ${props => !props.zap ? 'none' : 'line-through'}
         }
 
         img {
@@ -36,5 +37,13 @@ const ZapMenor = styled.section`
             position: absolute;
             bottom: 21px;
             right: 20px;
+        }
+
+        img:hover {
+            cursor: pointer;
+        }
+
+        img:active {
+            transform: scale(0.9);
         }
 ;`

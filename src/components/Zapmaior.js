@@ -8,15 +8,14 @@ export default function Zapmaior ({card, id, funcao}) {
     const [respondido, setRespondido] = useState(false);
 
     const respondeZap = (respondido) => {
-        if(respondido){return};
         setRespondido(!respondido)
     };
 
     return (
         <ZapMaior respondido={respondido} id={id}>
             <div>
-            <hi>{respondido ?  card.answer : card.question}</hi>
-            {respondido ? <Botoes funcao={funcao} /> : <img src={virar} onClick={() => respondeZap(respondido)} />}
+            <h1>{respondido ?  card.answer : card.question}</h1>
+            {respondido ? <Botoes id={id} funcao={funcao} /> : <img alt={virar} src={virar} onClick={() => respondeZap(respondido)} />}
             </div>
         </ZapMaior>
         )
@@ -24,22 +23,28 @@ export default function Zapmaior ({card, id, funcao}) {
 
 
     const ZapMaior = styled.section`
-        height: 131px;
+        
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        height: auto;
         width: 300px;
         background-color: #FFFFD4;
         border-radius: 5px;
         margin-bottom: 30px;
         position: relative;
+        padding: 10px;
 
         div {
-            padding: 10px;
-            height: auto;
-            width: 94%;
+            height: 80%;
+            width: 100%;
+            box-sizing: border-box;
         }
 
         h1 {
             font-size: 18px;
             font-weigth: 400;
+            align-self: flex-start;
         }
 
         img {
@@ -48,5 +53,17 @@ export default function Zapmaior ({card, id, funcao}) {
             position: absolute;
             bottom: 10px;
             right: 10px;
+        }
+
+        img:hover {
+            cursor: pointer;
+        }
+
+        img:active {
+            transform: scale(0.9);
+        }
+
+        &:last-child {
+            align-self: flex-end;
         }
     `;

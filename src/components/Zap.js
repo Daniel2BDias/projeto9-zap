@@ -5,7 +5,7 @@ import Zapmenor from "./Zapmenor"
 
 
 
-function Zap ({card, id, funcao}) {
+function Zap ({card, id, funcao, respondidos}) {
 
     const [zap, setZap] = useState(false);
 
@@ -15,7 +15,7 @@ function Zap ({card, id, funcao}) {
 
     return (
         <div>
-            {zap ? <Zapmaior key={id} funcao={funcao} id={id} card={card}/> : <Zapmenor key={id} id={id} zap={zap} virazap={() => ViraZap(zap)}/>}
+            {zap ? <Zapmaior key={id} respondidos={respondidos} funcao={funcao} id={id} card={card}/> : <Zapmenor key={id} id={id} zap={zap} virazap={() => ViraZap(zap)}/>}
         </div>
     )
 };

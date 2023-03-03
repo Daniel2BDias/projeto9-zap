@@ -1,11 +1,12 @@
 import styled from "styled-components"
 
-export default function Botoes ({funcao}) {
+export default function Botoes ({funcao, id}) {
+    console.log({id});
     return (
         <Coloridos>
-            <button onClick={funcao}>Não Lembrei</button>
-            <button onClick={funcao}>Quase não lembrei</button>
-            <button onClick={funcao}>Zap!</button>
+            <button onClick={() => funcao(id)}>Não Lembrei</button>
+            <button onClick={() => funcao(id)}>Quase não lembrei</button>
+            <button onClick={() => funcao(id)}>Zap!</button>
         </Coloridos>
     )
 };
@@ -15,6 +16,7 @@ const Coloridos = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box;
 
     button {
         width: 85px;
@@ -38,33 +40,13 @@ const Coloridos = styled.div`
         background-color: #2FBE34;
     }
 
-    & button:nth-child(1):hover {
+    & button:hover {
         cursor: pointer;
     }
 
-    & button:nth-child(2):hover {
-        cursor: pointer;
-    }
-
-    & button:nth-child(3):hover {
-        cursor: pointer;
-    }
-
-    & button:nth-child(1):active {
+    & button:active {
         transform: scale(0.97);
     }
-
-    & button:nth-child(2):active {
-        transform: scale(0.97);
-    }
-
-    & button:nth-child(3):active {
-        transform: scale(0.97);
-    }
-
-    &
-
-    &
 `
 
 

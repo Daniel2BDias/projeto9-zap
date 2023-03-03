@@ -1,11 +1,10 @@
 import styled from "styled-components";
 import Zap from "./Zap";
-import cards from "../cards";
 
-export default function Main({funcao}) {
+export default function Main({funcao, cards, respondidos}) {
     return (
         <MainContent>
-            {cards.map((card, i) => <Zap key={i} funcao={funcao} id={i} card={card} />)}
+            {cards.map((card, i) => <Zap key={i} respondidos={respondidos} funcao={funcao} id={i} card={card} />)}
         </MainContent>
     )
 };
@@ -20,4 +19,5 @@ margin: 200px 0 70px 0;
 background-color: #FB6B6B;
 height: 100%
 width: 100%;
+box-sizing: border-box;
 `
