@@ -1,12 +1,14 @@
 import styled from "styled-components"
 
-export default function Botoes ({funcao, id}) {
-    
+export default function Botoes ({responde, id, zap}) {
+
+    console.log({responde})
+
     return (
         <Coloridos>
-            <button onClick={() => funcao(id)}>Não Lembrei</button>
-            <button onClick={() => funcao(id)}>Quase não lembrei</button>
-            <button onClick={() => funcao(id)}>Zap!</button>
+            <button onClick={() => responde(id, zap, "erro")}>Não Lembrei</button>
+            <button onClick={() => responde(id, zap, "quase")}>Quase não lembrei</button>
+            <button onClick={() => responde(id, zap, "certo")}>Zap!</button>
         </Coloridos>
     )
 };

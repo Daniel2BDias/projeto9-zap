@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import Zap from "./Zap";
 
-export default function Main({funcao, cards, respondidos}) {
+export default function Main({adiciona, cards, respondidos}) {
     return (
         <MainContent>
-            {cards.map((card, i) => <Zap key={i} respondidos={respondidos} funcao={funcao} id={i} card={card} />)}
+            {cards.map((card, i) => <Zap key={i} respondidos={respondidos} adiciona={adiciona} id={i} card={card} />)}
         </MainContent>
     )
 };

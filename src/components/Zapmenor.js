@@ -1,12 +1,20 @@
 import styled from "styled-components";
-import play from "../assets/seta_play.png"
+import play from "../assets/seta_play.png";
+import certo from "../assets/icone_certo.png";
+import errado from "../assets/icone_erro.png";
+import quase from "../assets/icone_quase.png";
 
 
-export default function Zapmenor ({ virazap, zap, id, riscado}) {
-    return (
+export default function Zapmenor ({ virazap, zap, id, riscado, resultado }) {
+
+        return (
         <ZapMenor riscado={riscado}>
             <h1>pergunta {id+1}</h1>
-            <img alt={play} src={play} onClick={() => virazap(zap)}/>
+            {riscado ? 
+            
+            <img src={resultado === "certo" ? certo : resultado === "erro" ? errado : quase}/> :
+
+            <img alt={play} src={play} onClick={() => virazap(zap)}/>}
         </ZapMenor>
     );
 };
@@ -28,7 +36,8 @@ const ZapMenor = styled.section`
             margin-left: 25px;
             font-size: 16px;
             font-weigth: 700;
-            text-decoration: ${props => !props.riscado ? 'none' : 'line-through'}
+            text-decoration: ${props => !props.riscado ? 'none' : 'line-through'};
+            color: ;
         }
 
         img {

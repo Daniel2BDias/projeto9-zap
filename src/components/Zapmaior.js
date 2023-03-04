@@ -3,7 +3,7 @@ import styled from "styled-components";
 import virar from "../assets/seta_virar.png"
 import Botoes from "./Botoes";
 
-export default function Zapmaior ({card, id, funcao, zap}) {
+export default function Zapmaior ({card, id, responde, zap}) {
 
     const [respondido, setRespondido] = useState(false);
 
@@ -15,7 +15,7 @@ export default function Zapmaior ({card, id, funcao, zap}) {
         <ZapMaior respondido={respondido} id={id}>
             <div>
             <h1>{respondido ?  card.answer : card.question}</h1>
-            {respondido ? <Botoes zap={zap} id={id} funcao={funcao} /> : <img alt={virar} src={virar} onClick={() => respondeZap(respondido)} />}
+            {respondido ? <Botoes zap={zap} id={id} responde={responde} /> : <img alt={virar} src={virar} onClick={() => respondeZap(respondido)} />}
             </div>
         </ZapMaior>
         )
