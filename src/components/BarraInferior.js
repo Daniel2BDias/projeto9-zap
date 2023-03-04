@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function BarraInferior ({respondido, total}) {
     return (
-        <Inferior value={respondido} t={total}>
+        <Inferior data-test="footer" value={respondido} t={total}>
             <div>
             <h1>{respondido}/{total} Concluídos</h1>
             </div>

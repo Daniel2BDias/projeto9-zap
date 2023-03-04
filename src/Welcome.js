@@ -7,7 +7,7 @@ export default function Welcome ({iniciar}) {
             <div>
                 <img src={logo}/>
                 <h1>ZapRecall</h1>
-                <button onClick={iniciar}>Iniciar Recall!</button>
+                <button data-test="start-btn" onClick={iniciar}>Iniciar Recall!</button>
             </div>
         </WelcomeStyle>
     )
@@ -17,6 +17,7 @@ export default function Welcome ({iniciar}) {
 const WelcomeStyle = styled.div`
 
     font-family: 'Righteous', sans-serif;
+    color: #FFFFFF;
     
     div {
 
@@ -34,7 +35,7 @@ const WelcomeStyle = styled.div`
             height: 55px;
             width: 245px;
             border-radius: 5px;
-            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.2);
+            box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.2);
         }
 
         button:hover{

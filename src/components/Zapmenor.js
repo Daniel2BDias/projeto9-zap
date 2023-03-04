@@ -8,13 +8,16 @@ import quase from "../assets/icone_quase.png";
 export default function Zapmenor ({ virazap, zap, id, riscado, resultado }) {
 
         return (
-        <ZapMenor riscado={riscado}>
-            <h1>pergunta {id+1}</h1>
+        <ZapMenor data-test="flashcard" riscado={riscado}>
+            <h1 data-test="flashcard-text">pergunta {id+1}</h1>
             {riscado ? 
-            
-            <img src={resultado === "certo" ? certo : resultado === "erro" ? errado : quase}/> :
-
-            <img alt={play} src={play} onClick={() => virazap(zap)}/>}
+            <img 
+            data-test={resultado === "certo" ? "zap-icon" : resultado === "erro" ? "no-icon" : "partial-icon"} 
+            src={resultado === "certo" ? certo : resultado === "erro" ? errado : quase}
+            /> 
+            :
+            <img data-test="play-btn" alt={play} src={play} onClick={() => virazap(zap)}/>
+            }
         </ZapMenor>
     );
 };
@@ -30,6 +33,7 @@ const ZapMenor = styled.section`
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.2);
 
 
         h1 {

@@ -12,10 +12,10 @@ export default function Zapmaior ({card, id, responde, zap}) {
     };
 
     return (
-        <ZapMaior respondido={respondido} id={id}>
+        <ZapMaior data-test="flashcard" respondido={respondido} id={id}>
             <div>
-            <h1>{respondido ?  card.answer : card.question}</h1>
-            {respondido ? <Botoes zap={zap} id={id} responde={responde} /> : <img alt={virar} src={virar} onClick={() => respondeZap(respondido)} />}
+            <h1 data-test="flashcard-text">{respondido ?  card.answer : card.question}</h1>
+            {respondido ? <Botoes zap={zap} id={id} responde={responde} /> : <img data-test="turn-btn" alt={virar} src={virar} onClick={() => respondeZap(respondido)} />}
             </div>
         </ZapMaior>
         )
@@ -34,6 +34,7 @@ export default function Zapmaior ({card, id, responde, zap}) {
         margin-bottom: 30px;
         position: relative;
         padding: 10px;
+        box-shadow: 2px 4px 4px 0px rgba(0, 0, 0, 0.2);
 
         div {
             height: 80%;

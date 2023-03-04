@@ -6,9 +6,9 @@ export default function Botoes ({responde, id, zap}) {
 
     return (
         <Coloridos>
-            <button onClick={() => responde(id, zap, "erro")}>Não Lembrei</button>
-            <button onClick={() => responde(id, zap, "quase")}>Quase não lembrei</button>
-            <button onClick={() => responde(id, zap, "certo")}>Zap!</button>
+            <button data-test="no-btn" onClick={() => responde(id, zap, "erro")}>Não Lembrei</button>
+            <button data-test="partial-btn" onClick={() => responde(id, zap, "quase")}>Quase não lembrei</button>
+            <button data-test="zap-btn" onClick={() => responde(id, zap, "certo")}>Zap!</button>
         </Coloridos>
     )
 };
