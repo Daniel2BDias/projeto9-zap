@@ -1,11 +1,8 @@
 import styled from "styled-components";
 import party from "../assets/party.png";
 import sad from "../assets/sad.png";
-import certo from "../assets/icone_certo.png";
-import quase from "../assets/icone_quase.png";
-import errado from "../assets/icone_erro.png";
 
-export default function BarraInferior({ respondido, total, icone, errado, certo, quase}) {
+export default function BarraInferior({ respondido, total, icone, errado, certo}) {
 
     console.log({icone})
     return (
