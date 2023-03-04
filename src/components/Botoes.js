@@ -1,9 +1,6 @@
 import styled from "styled-components"
 
-export default function Botoes ({responde, id, zap}) {
-
-    console.log({responde})
-
+export default function Botoes({ responde, id, zap }) {
     return (
         <Coloridos>
             <button data-test="no-btn" onClick={() => responde(id, zap, "erro")}>Não Lembrei</button>

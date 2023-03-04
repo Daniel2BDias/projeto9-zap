@@ -1,45 +1,47 @@
-import { useState } from "react"
-import Zapmaior from "./Zapmaior"
-import Zapmenor from "./Zapmenor"
+import { useState } from "react";
+import Zapmaior from "./Zapmaior";
+import Zapmenor from "./Zapmenor";
 
 
-function Zap ({card, id, adiciona, respondidos}) {
 
-    const [zap, setZap] = useState(false);
-    const [riscado, setRiscado] = useState(false);
-    const [resultado, setResultado] = useState("");
+function Zap({ card, id, adiciona, respondidos, icone }) {
 
-    const result = (res) => {
-        setResultado(res)
-    }
+  const [zap, setZap] = useState(false);
+  const [riscado, setRiscado] = useState(false);
+  const [resultado, setResultado] = useState("");
 
-    const Riscado = () => {
-        if(riscado){return};
-        setRiscado(!riscado)
-      }
+  const result = (res) => {
+    setResultado(res)
+  };
 
-    const ViraZap = (zap) => {
-        setZap(!zap);
-        Riscado();
-      };
+  const Riscado = () => {
+    if (riscado) { return };
+    setRiscado(!riscado)
+  };
 
-      const responde = (id, zap, resultado) => {
-        adiciona(id);
-        ViraZap(zap);
-        result(resultado)
-      }
+  const ViraZap = (zap) => {
+    setZap(!zap);
+    Riscado();
+  };
 
-    return (
-        <div>
-            {zap ? 
+  const responde = (id, zap, resultado) => {
+    adiciona(id);
+    ViraZap(zap);
+    result(resultado);
+    icone(resultado);
+  }
 
-            <Zapmaior key={id} zap={zap} respondidos={respondidos} 
-            responde={responde} id={id} card={card}/> : 
+  return (
+    <div>
+      {zap ?
 
-            <Zapmenor key={id} resultado={resultado} id={id} riscado={riscado} Riscado={Riscado} 
-            zap={zap} virazap={ViraZap}/>}
-        </div>
-    )
+        <Zapmaior key={id} zap={zap} respondidos={respondidos}
+          responde={responde} id={id} card={card} /> :
+
+        <Zapmenor key={id} resultado={resultado} id={id} riscado={riscado} Riscado={Riscado}
+          zap={zap} virazap={ViraZap} />}
+    </div>
+  )
 };
 
 export default Zap;

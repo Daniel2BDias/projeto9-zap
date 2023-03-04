@@ -5,18 +5,18 @@ import errado from "../assets/icone_erro.png";
 import quase from "../assets/icone_quase.png";
 
 
-export default function Zapmenor ({ virazap, zap, id, riscado, resultado }) {
+export default function Zapmenor({ virazap, zap, id, riscado, resultado }) {
 
-        return (
-        <ZapMenor data-test="flashcard" riscado={riscado}>
-            <h1 data-test="flashcard-text">pergunta {id+1}</h1>
-            {riscado ? 
-            <img 
-            data-test={resultado === "certo" ? "zap-icon" : resultado === "erro" ? "no-icon" : "partial-icon"} 
-            src={resultado === "certo" ? certo : resultado === "erro" ? errado : quase}
-            /> 
-            :
-            <img data-test="play-btn" alt={play} src={play} onClick={() => virazap(zap)}/>
+    return (
+        <ZapMenor data-test="flashcard" riscado={riscado} cor={resultado}>
+            <h1 data-test="flashcard-text">pergunta {id + 1}</h1>
+            {riscado ?
+                <img
+                    data-test={resultado === "certo" ? "zap-icon" : resultado === "erro" ? "no-icon" : "partial-icon"}
+                    src={resultado === "certo" ? certo : resultado === "erro" ? errado : quase}
+                />
+                :
+                <img data-test="play-btn" alt={play} src={play} onClick={() => virazap(zap)} />
             }
         </ZapMenor>
     );
@@ -41,7 +41,10 @@ const ZapMenor = styled.section`
             font-size: 16px;
             font-weigth: 700;
             text-decoration: ${props => !props.riscado ? 'none' : 'line-through'};
-            color: ;
+            color: ${props => props.cor === 'certo' ? '#2FBE34' :
+        props.cor === 'erro' ? '#FF3030' :
+            props.cor === 'quase' ? '#FF922E' :
+                '#000000'};
         }
 
         img {
