@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 export default function Botoes ({funcao, id}) {
-    console.log({id});
+    
     return (
         <Coloridos>
             <button onClick={() => funcao(id)}>Não Lembrei</button>

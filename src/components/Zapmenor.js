@@ -2,9 +2,9 @@ import styled from "styled-components";
 import play from "../assets/seta_play.png"
 
 
-export default function Zapmenor ({ virazap, zap, id}) {
+export default function Zapmenor ({ virazap, zap, id, riscado}) {
     return (
-        <ZapMenor>
+        <ZapMenor riscado={riscado}>
             <h1>pergunta {id+1}</h1>
             <img alt={play} src={play} onClick={() => virazap(zap)}/>
         </ZapMenor>
@@ -28,7 +28,7 @@ const ZapMenor = styled.section`
             margin-left: 25px;
             font-size: 16px;
             font-weigth: 700;
-            text-decoration: ${props => !props.zap ? 'none' : 'line-through'}
+            text-decoration: ${props => !props.riscado ? 'none' : 'line-through'}
         }
 
         img {

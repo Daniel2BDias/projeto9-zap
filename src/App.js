@@ -10,12 +10,11 @@ function App() {
 
   const [concluidos, setConcluidos] = useState(0);
   const [respondidos, setRespondidos] = useState([]);
-
+  
   const adicionaConcluido = (id) => {
     if(respondidos.includes(id)){return};
-    setConcluidos(concluidos+1)
-    setRespondidos([...respondidos, id])
-    console.log({id})
+    setConcluidos(concluidos+1);
+    setRespondidos([...respondidos, id]);
   };
   
   return (
