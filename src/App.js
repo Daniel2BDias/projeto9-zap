@@ -28,6 +28,8 @@ function App() {
   }
 
   const iconeRodape = (icone) => {
+
+    console.log({icone})
     if (icone === "certo") {
       icone = certo
     } else if (icone === "erro") {
@@ -56,7 +58,7 @@ function App() {
           <GlobalStyle />
           <BarraSuperior />
           <Main cards={cards} icone={iconeRodape} adiciona={adicionaConcluido} respondidos={respondidos} />
-          <BarraInferior errado={errado} certo={certo} icone={respondido} respondido={concluidos} total={cards.length} />
+          <BarraInferior errado={errado} certo={certo} quase={quase} icone={respondido} respondido={concluidos} total={cards.length} />
         </>}
     </>
 
