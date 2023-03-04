@@ -2,16 +2,16 @@ import styled from "styled-components";
 import party from "../assets/party.png";
 import sad from "../assets/sad.png";
 
-export default function BarraInferior({ respondido, total, icone, errado, certo, quase }) {
+export default function BarraInferior({ respondido, total, icone, errado, certo }) {
     console.log(icone)
     return (
-            <Inferior data-test="footer" value={respondido} t={total}>
-                {respondido === total && icone.includes(errado)
+        <Inferior data-test="footer" value={respondido} t={total}>
+            {respondido === total && icone.includes(errado)
                 ?
                 <Mensagem data-test="finish-text">
                     <h1><img src={sad} />   Putz...</h1>
                     <p>
-                        Ainda faltam alguns...<br/>
+                        Ainda faltam alguns...<br />
                         Mas não desanime!
                     </p>
                 </Mensagem>
@@ -27,16 +27,17 @@ export default function BarraInferior({ respondido, total, icone, errado, certo,
                     :
                     <Mensagem data-test="finish-text"></Mensagem>
             }
-                <div>
-                    <h1>{respondido}/{total} Concluídos</h1>
-                    <Icones>
-                    {icone.map(i => 
-                    <img data-test={i === certo ? "zap-icon" : i === errado ? "no-icon" : "partial-icon"} 
-                    src={i} 
-                    />)}
-                    </Icones>
-                </div>
-            </Inferior>
+            <div>
+                <h1>{respondido}/{total} Concluídos</h1>
+                <Icones>
+                    {icone.map(i => {
+                        <img data-test={i === certo ? "zap-icon" : i === errado ? "no-icon" : "partial-icon"}
+                            src={i}
+                        />})
+                    }
+                </Icones>
+            </div>
+        </Inferior>
     )
 };
 

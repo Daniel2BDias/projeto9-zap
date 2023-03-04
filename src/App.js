@@ -28,10 +28,14 @@ function App() {
   }
 
   const iconeRodape = (icone) => {
-    if (icone === "certo") { icone = certo };
-    if (icone === "erro") { icone = errado };
-    if (icone === "quase") { icone = quase };
-    setRespondido([...respondido, icone])
+    if (icone === "certo") {
+      icone = certo
+    } else if (icone === "erro") {
+      icone = errado
+    } else {
+      icone = quase
+    };
+    setRespondido([...respondido, icone]);
   }
 
   return (
@@ -52,7 +56,7 @@ function App() {
           <GlobalStyle />
           <BarraSuperior />
           <Main cards={cards} icone={iconeRodape} adiciona={adicionaConcluido} respondidos={respondidos} />
-          <BarraInferior errado={errado} certo={certo} quase={quase} icone={respondido} respondido={concluidos} total={cards.length} />
+          <BarraInferior errado={errado} certo={certo} icone={respondido} respondido={concluidos} total={cards.length} />
         </>}
     </>
 
